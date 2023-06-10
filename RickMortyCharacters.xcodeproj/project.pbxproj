@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		049D2FEA2A32FDA500FDCDC5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D2FE92A32FDA500FDCDC5 /* AppDelegate.swift */; };
 		049D2FEC2A32FDA500FDCDC5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D2FEB2A32FDA500FDCDC5 /* SceneDelegate.swift */; };
-		049D2FEE2A32FDA500FDCDC5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D2FED2A32FDA500FDCDC5 /* ViewController.swift */; };
+		049D2FEE2A32FDA500FDCDC5 /* CharacterListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D2FED2A32FDA500FDCDC5 /* CharacterListVC.swift */; };
 		049D2FF12A32FDA500FDCDC5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049D2FEF2A32FDA500FDCDC5 /* Main.storyboard */; };
 		049D2FF32A32FDA700FDCDC5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049D2FF22A32FDA700FDCDC5 /* Assets.xcassets */; };
 		049D2FF62A32FDA700FDCDC5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049D2FF42A32FDA700FDCDC5 /* LaunchScreen.storyboard */; };
@@ -39,7 +39,7 @@
 		049D2FE62A32FDA500FDCDC5 /* RickMortyCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickMortyCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049D2FE92A32FDA500FDCDC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049D2FEB2A32FDA500FDCDC5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		049D2FED2A32FDA500FDCDC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		049D2FED2A32FDA500FDCDC5 /* CharacterListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListVC.swift; sourceTree = "<group>"; };
 		049D2FF02A32FDA500FDCDC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		049D2FF22A32FDA700FDCDC5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		049D2FF52A32FDA700FDCDC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -99,13 +99,9 @@
 		049D2FE82A32FDA500FDCDC5 /* RickMortyCharacters */ = {
 			isa = PBXGroup;
 			children = (
-				049D2FE92A32FDA500FDCDC5 /* AppDelegate.swift */,
-				049D2FEB2A32FDA500FDCDC5 /* SceneDelegate.swift */,
-				049D2FED2A32FDA500FDCDC5 /* ViewController.swift */,
-				049D2FEF2A32FDA500FDCDC5 /* Main.storyboard */,
-				049D2FF22A32FDA700FDCDC5 /* Assets.xcassets */,
-				049D2FF42A32FDA700FDCDC5 /* LaunchScreen.storyboard */,
-				049D2FF72A32FDA700FDCDC5 /* Info.plist */,
+				049D301E2A330E6800FDCDC5 /* Feature */,
+				049D301D2A330E5E00FDCDC5 /* Network */,
+				049D30192A330D0600FDCDC5 /* SupportingFIles */,
 			);
 			path = RickMortyCharacters;
 			sourceTree = "<group>";
@@ -125,6 +121,58 @@
 				049D300C2A32FDA800FDCDC5 /* RickMortyCharactersUITestsLaunchTests.swift */,
 			);
 			path = RickMortyCharactersUITests;
+			sourceTree = "<group>";
+		};
+		049D30192A330D0600FDCDC5 /* SupportingFIles */ = {
+			isa = PBXGroup;
+			children = (
+				049D2FE92A32FDA500FDCDC5 /* AppDelegate.swift */,
+				049D2FEB2A32FDA500FDCDC5 /* SceneDelegate.swift */,
+				049D2FEF2A32FDA500FDCDC5 /* Main.storyboard */,
+				049D2FF22A32FDA700FDCDC5 /* Assets.xcassets */,
+				049D2FF42A32FDA700FDCDC5 /* LaunchScreen.storyboard */,
+				049D2FF72A32FDA700FDCDC5 /* Info.plist */,
+			);
+			path = SupportingFIles;
+			sourceTree = "<group>";
+		};
+		049D301A2A330DC200FDCDC5 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				049D2FED2A32FDA500FDCDC5 /* CharacterListVC.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		049D301B2A330DC800FDCDC5 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		049D301C2A330DCE00FDCDC5 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		049D301D2A330E5E00FDCDC5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		049D301E2A330E6800FDCDC5 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				049D301A2A330DC200FDCDC5 /* List */,
+				049D301C2A330DCE00FDCDC5 /* Search */,
+				049D301B2A330DC800FDCDC5 /* Detail */,
+			);
+			path = Feature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				049D2FEE2A32FDA500FDCDC5 /* ViewController.swift in Sources */,
+				049D2FEE2A32FDA500FDCDC5 /* CharacterListVC.swift in Sources */,
 				049D2FEA2A32FDA500FDCDC5 /* AppDelegate.swift in Sources */,
 				049D2FEC2A32FDA500FDCDC5 /* SceneDelegate.swift in Sources */,
 			);
@@ -438,7 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RickMortyCharacters/Info.plist;
+				INFOPLIST_FILE = RickMortyCharacters/SupportingFIles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -466,7 +514,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RickMortyCharacters/Info.plist;
+				INFOPLIST_FILE = RickMortyCharacters/SupportingFIles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
