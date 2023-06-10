@@ -15,7 +15,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var infoTextView: UITextView!
     
     // MARK: Properties
-    private let viewModel = DetailVCViewModel(apiClient: RickMortyRequest.shared)
+    var viewModel = DetailVCViewModel(apiClient: RickMortyRequest.shared)
     private let disposeBag = DisposeBag()
     private let placeholderImage = UIImage(systemName: "person.crop.square.fill")!
     // set by caller
