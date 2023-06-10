@@ -1,0 +1,2 @@
+*.pbxproj binary merge=union
+#*.pbxproj text -crlf -diff -merge=union
