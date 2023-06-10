@@ -9,11 +9,14 @@ import UIKit
 
 enum StoryboardScene: String {
     case main
+    case detail
     
     var nibName: String {
         switch self {
         case .main:
             return "Main"
+        case .detail:
+            return "Detail"
         }
     }
     
@@ -22,7 +25,6 @@ enum StoryboardScene: String {
         public enum Screen: String {
             case list
             case search
-            case detail
             
             var nibName: String {
                 switch self {
@@ -30,6 +32,22 @@ enum StoryboardScene: String {
                     return "CharacterListVC"
                 case .search:
                     return "SearchVC"
+                }
+            }
+            
+            func getViewController() -> UIViewController {
+                return storyboard.instantiateViewController(withIdentifier: self.nibName)
+            }
+        }
+    }
+    
+    struct Detail {
+        static let storyboard = StoryboardScene.detail.getStoryBoard()
+        public enum Screen: String {
+            case detail
+            
+            var nibName: String {
+                switch self {
                 case .detail:
                     return "DetailVC"
                 }
