@@ -1,5 +1,5 @@
 //
-//  SearchVCVIewModel.swift
+//  SearchVCViewModel.swift
 //  RickMortyCharacters
 //
 //  Created by MAC on 6/9/23.
@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class SearchVCVIewModel {
+class SearchVCViewModel {
     // MARK: Properties
     private let apiClient: RxHTTPRequest
     private let disposeBag = DisposeBag()

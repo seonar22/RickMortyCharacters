@@ -32,7 +32,7 @@ class CharacterListVC: UIViewController {
         .throttle(.milliseconds(700), scheduler: MainScheduler.instance)
         .share()
     
-    private let viewModel = CharacterListVCViewModel(apiClient: RickMortyRequest.shared)
+    var viewModel = CharacterListVCViewModel(apiClient: RickMortyRequest.shared)
     private let disposeBag = DisposeBag()
     
     // MARK: Lifecycle

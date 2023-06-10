@@ -26,7 +26,7 @@ class SearchVC: UIViewController {
         .throttle(.milliseconds(700), scheduler: MainScheduler.instance)
         .share()
     
-    private let viewModel = SearchVCVIewModel(apiClient: RickMortyRequest.shared)
+    var viewModel = SearchVCViewModel(apiClient: RickMortyRequest.shared)
     private let disposeBag = DisposeBag()
         
     // MARK: Lifecycle
