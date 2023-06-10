@@ -15,7 +15,7 @@ class CharacterSummaryCell: UITableViewCell {
     // MARK: Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
         selectionStyle = .none
     }
     

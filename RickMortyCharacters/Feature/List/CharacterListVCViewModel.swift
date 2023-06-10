@@ -45,7 +45,7 @@ class CharacterListVCViewModel {
     // MARK: API methods
     func getCharacters() {
         guard hasNextForApiCall.value else {
-            // Throw error
+            error.accept(())
             return
         }
         

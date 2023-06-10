@@ -45,12 +45,16 @@ class DetailVCViewModel {
         ImageDownloader.shared.loadData(url: profileImageURL) { [weak self] data, _ in
             guard let self = self else { return }
             
-            guard let data = data else {
-                self.profileImageData.accept(self.placeholderImage)
-                return
-            }
-            
-            self.profileImageData.accept(UIImage(data: data) ?? placeholderImage)
+            self.convertDataToImage(data)
         }
+    }
+    
+    private func convertDataToImage(_ data: Data?) {
+        guard let data = data else {
+            profileImageData.accept(placeholderImage)
+            return
+        }
+        
+        profileImageData.accept(UIImage(data: data) ?? placeholderImage)
     }
 }
