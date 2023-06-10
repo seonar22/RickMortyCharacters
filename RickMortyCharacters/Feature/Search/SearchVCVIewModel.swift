@@ -62,7 +62,7 @@ class SearchVCVIewModel {
                 let existingCharacters = self.charactersFromAPI.value
                 let newCharacters = apiResponse.results
                     .map {
-                        CharacterSummary(name: $0.name ?? "-", status: $0.status)
+                        CharacterSummary(id: $0.id, name: $0.name ?? "-", status: $0.status)
                     }
                 self.charactersFromAPI.accept(existingCharacters + newCharacters)
                 self.isLoading.accept(false)

@@ -146,6 +146,12 @@ class CharacterListVC: UIViewController {
         let vc = StoryboardScene.Character.Screen.search.getViewController() as! SearchVC
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    private func moveToDetail(_ summary: CharacterSummary) {
+        let vc = StoryboardScene.Detail.Screen.detail.getViewController() as! DetailVC
+        vc.id = summary.id
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension CharacterListVC: UITableViewDelegate, UITableViewDataSource {
@@ -158,5 +164,10 @@ extension CharacterListVC: UITableViewDelegate, UITableViewDataSource {
         let summary = viewModel.characters[indexPath.row]
         cell.setupCell(summary: summary)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let summary = viewModel.characters[indexPath.row]
+        moveToDetail(summary)
     }
 }
