@@ -7,6 +7,7 @@ inhibit_all_warnings!
 def rxPods
   pod 'RxSwift', '6.5.0'
   pod 'RxCocoa', '6.5.0'
+  pod 'RxGesture', '4.0.4'
 end
 
 def rxTestPods
