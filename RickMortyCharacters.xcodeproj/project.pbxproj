@@ -32,6 +32,10 @@
 		049D30402A343E0000FDCDC5 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D303F2A343E0000FDCDC5 /* AlertView.swift */; };
 		049D30422A34424D00FDCDC5 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049D30412A34424D00FDCDC5 /* Detail.storyboard */; };
 		049D30442A34426400FDCDC5 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D30432A34426400FDCDC5 /* DetailVC.swift */; };
+		049D30462A3447ED00FDCDC5 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D30452A3447ED00FDCDC5 /* ImageDownloader.swift */; };
+		049D30482A344A1200FDCDC5 /* DetailVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D30472A344A1200FDCDC5 /* DetailVCViewModel.swift */; };
+		049D304A2A34567D00FDCDC5 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D30492A34567D00FDCDC5 /* Status.swift */; };
+		049D304C2A3456B700FDCDC5 /* NSMutableAttributedString+hyperlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D304B2A3456B700FDCDC5 /* NSMutableAttributedString+hyperlink.swift */; };
 		29B9EFB9A5018B7AD230F5F9 /* Pods_RickMortyCharactersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 235E091F58EF76383767672F /* Pods_RickMortyCharactersTests.framework */; };
 		6FB8FE09480989361E29E751 /* Pods_RickMortyCharactersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC1639EF89C8783C69A138F /* Pods_RickMortyCharactersUITests.framework */; };
 		DD199E32C3F77617CA987CBC /* Pods_RickMortyCharacters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3057CEA4179FF93A43ACBB4A /* Pods_RickMortyCharacters.framework */; };
@@ -84,6 +88,10 @@
 		049D303F2A343E0000FDCDC5 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		049D30412A34424D00FDCDC5 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		049D30432A34426400FDCDC5 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		049D30452A3447ED00FDCDC5 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
+		049D30472A344A1200FDCDC5 /* DetailVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVCViewModel.swift; sourceTree = "<group>"; };
+		049D30492A34567D00FDCDC5 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		049D304B2A3456B700FDCDC5 /* NSMutableAttributedString+hyperlink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+hyperlink.swift"; sourceTree = "<group>"; };
 		0DC1639EF89C8783C69A138F /* Pods_RickMortyCharactersUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RickMortyCharactersUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10DFE7DE0E4128221B9D484E /* Pods-RickMortyCharactersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickMortyCharactersTests.release.xcconfig"; path = "Target Support Files/Pods-RickMortyCharactersTests/Pods-RickMortyCharactersTests.release.xcconfig"; sourceTree = "<group>"; };
 		1ABB9D1090EBDB0404D375E2 /* Pods-RickMortyCharactersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickMortyCharactersTests.debug.xcconfig"; path = "Target Support Files/Pods-RickMortyCharactersTests/Pods-RickMortyCharactersTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				049D30432A34426400FDCDC5 /* DetailVC.swift */,
+				049D30472A344A1200FDCDC5 /* DetailVCViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -219,6 +228,7 @@
 			children = (
 				049D301F2A3311B000FDCDC5 /* RxAPIClient.swift */,
 				049D30232A331A5500FDCDC5 /* RickMortyAPIClient.swift */,
+				049D30452A3447ED00FDCDC5 /* ImageDownloader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -258,6 +268,7 @@
 				049D302E2A334BEA00FDCDC5 /* CharacterDetailAPIResponse.swift */,
 				049D30302A334C0D00FDCDC5 /* Location.swift */,
 				049D303A2A33811D00FDCDC5 /* CharacterSummary.swift */,
+				049D30492A34567D00FDCDC5 /* Status.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +295,7 @@
 			children = (
 				049D303D2A3435C700FDCDC5 /* Array+Chunk.swift */,
 				049D303F2A343E0000FDCDC5 /* AlertView.swift */,
+				049D304B2A3456B700FDCDC5 /* NSMutableAttributedString+hyperlink.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -556,6 +568,7 @@
 				049D30392A335A4B00FDCDC5 /* SearchVCVIewModel.swift in Sources */,
 				049D30222A33184A00FDCDC5 /* CharacterListVCViewModel.swift in Sources */,
 				049D2FEE2A32FDA500FDCDC5 /* CharacterListVC.swift in Sources */,
+				049D304C2A3456B700FDCDC5 /* NSMutableAttributedString+hyperlink.swift in Sources */,
 				049D30442A34426400FDCDC5 /* DetailVC.swift in Sources */,
 				049D303E2A3435C700FDCDC5 /* Array+Chunk.swift in Sources */,
 				049D30312A334C0D00FDCDC5 /* Location.swift in Sources */,
@@ -563,11 +576,14 @@
 				049D302D2A334BB900FDCDC5 /* CharacterListAPIResponse.swift in Sources */,
 				049D302F2A334BEA00FDCDC5 /* CharacterDetailAPIResponse.swift in Sources */,
 				049D2FEC2A32FDA500FDCDC5 /* SceneDelegate.swift in Sources */,
+				049D304A2A34567D00FDCDC5 /* Status.swift in Sources */,
 				049D30242A331A5500FDCDC5 /* RickMortyAPIClient.swift in Sources */,
 				049D30202A3311B000FDCDC5 /* RxAPIClient.swift in Sources */,
+				049D30482A344A1200FDCDC5 /* DetailVCViewModel.swift in Sources */,
 				049D30272A332C3E00FDCDC5 /* CharacterSummaryCell.swift in Sources */,
 				049D30402A343E0000FDCDC5 /* AlertView.swift in Sources */,
 				049D303B2A33811D00FDCDC5 /* CharacterSummary.swift in Sources */,
+				049D30462A3447ED00FDCDC5 /* ImageDownloader.swift in Sources */,
 				049D30352A334E0800FDCDC5 /* StoryboardScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

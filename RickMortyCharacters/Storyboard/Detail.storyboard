@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y4G-EV-Y0h" userLabel="MainContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="218"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ga5-E1-ixy" userLabel="avatarView">
                                                 <rect key="frame" x="156.66666666666666" y="0.0" width="80" height="80"/>
@@ -30,11 +30,28 @@
                                                     <constraint firstAttribute="height" constant="80" id="dAn-m3-Tdw"/>
                                                 </constraints>
                                             </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="e3K-sG-mSe">
+                                                <rect key="frame" x="10" y="90" width="373" height="128"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4I7-yq-fF1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="373" height="128"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="e3K-sG-mSe" firstAttribute="top" secondItem="Ga5-E1-ixy" secondAttribute="bottom" constant="10" id="0E7-Oe-xFc"/>
                                             <constraint firstAttribute="height" priority="100" constant="800" id="Ayi-rf-nqh"/>
+                                            <constraint firstAttribute="bottom" secondItem="e3K-sG-mSe" secondAttribute="bottom" id="Bct-Ub-9zn"/>
                                             <constraint firstItem="Ga5-E1-ixy" firstAttribute="centerX" secondItem="Y4G-EV-Y0h" secondAttribute="centerX" id="Ufw-vX-xpr"/>
+                                            <constraint firstAttribute="trailing" secondItem="e3K-sG-mSe" secondAttribute="trailing" constant="10" id="arQ-4r-Kiw"/>
+                                            <constraint firstItem="e3K-sG-mSe" firstAttribute="leading" secondItem="Y4G-EV-Y0h" secondAttribute="leading" constant="10" id="nHn-Km-5Yl"/>
                                             <constraint firstItem="Ga5-E1-ixy" firstAttribute="top" secondItem="Y4G-EV-Y0h" secondAttribute="top" id="tYy-f6-US0"/>
                                         </constraints>
                                     </view>
@@ -59,6 +76,10 @@
                             <constraint firstItem="d76-Qs-ESu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="h0K-ig-NTn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="avatarImageView" destination="Ga5-E1-ixy" id="yqc-0Q-XHg"/>
+                        <outlet property="infoTextView" destination="4I7-yq-fF1" id="zsq-Gq-PZS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -66,6 +87,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

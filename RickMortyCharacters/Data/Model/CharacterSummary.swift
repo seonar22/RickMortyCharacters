@@ -10,5 +10,5 @@ import Foundation
 struct CharacterSummary {
     let id: Int?
     let name: String
-    let status: CharacterListAPIResponse.Status?
+    let status: Status?
 }
