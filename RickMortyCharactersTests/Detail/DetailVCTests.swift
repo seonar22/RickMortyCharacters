@@ -6,7 +6,6 @@
 //
 
 import XCTest
-import RxTest
 import RxSwift
 
 @testable import RickMortyCharacters
@@ -21,7 +20,7 @@ final class DetailVCTests: XCTestCase {
     var sut: DetailVC!
     var disposeBag: DisposeBag!
     
-    // MARK: - Test Lifecycle
+    // MARK: Test Lifecycle
     override func setUpWithError() throws {
         try super.setUpWithError()
         
@@ -38,7 +37,7 @@ final class DetailVCTests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    // MARK: - Outlet Tests
+    // MARK: Outlet Tests
     func testVC_outlets_areConnected() {
         // given
         sut.loadViewIfNeeded()
@@ -51,7 +50,7 @@ final class DetailVCTests: XCTestCase {
         XCTAssertTrue(sut.infoTextView.isDescendant(of: sut.view))
     }
     
-    // MARK: - Lifecycle Tests
+    // MARK: Lifecycle Tests
     func testVC_whenViewDidLoad_initialStateIsCorrect() {
         // given
         sut.id = 1

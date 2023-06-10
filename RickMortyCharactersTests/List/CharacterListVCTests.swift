@@ -6,17 +6,16 @@
 //
 
 import XCTest
-import RxTest
 import RxSwift
 
 @testable import RickMortyCharacters
 
 final class CharacterListVCTests: XCTestCase {
-    // MARK: - Instance Properties
+    // MARK: Instance Properties
     var sut: CharacterListVC!
     var disposeBag: DisposeBag!
 
-    // MARK: - Test Lifecycle
+    // MARK: Test Lifecycle
     override func setUpWithError() throws {
         try super.setUpWithError()
         
@@ -34,19 +33,22 @@ final class CharacterListVCTests: XCTestCase {
         try super.tearDownWithError()
     }
     
-    // MARK: - Outlet Tests
+    // MARK: Outlet Tests
     func testVC_outlets_areConnected() {
+        // given
         sut.loadViewIfNeeded()
 
+        // when
         sut.viewDidLoad()
         
+        // then
         XCTAssertTrue(sut.tableView.isDescendant(of: sut.view))
         XCTAssertTrue(sut.previousButton.isDescendant(of: sut.view))
         XCTAssertTrue(sut.nextButton.isDescendant(of: sut.view))
         XCTAssertTrue(sut.searchImageView.isDescendant(of: sut.view))
     }
     
-    // MARK: - Lifecycle Tests
+    // MARK: Lifecycle Tests
     func testVC_whenViewDidLoad_initialStateIsCorrect() {
         // given
         sut.loadViewIfNeeded()
