@@ -1,5 +1,5 @@
 //
-//  CharacterListVC.swift
+//  SearchVC.swift
 //  RickMortyCharacters
 //
 //  Created by MAC on 6/9/23.
@@ -7,22 +7,16 @@
 
 import UIKit
 import RxSwift
-import RxGesture
 
-//- List page only show / Name and Status Live or Dead
-class CharacterListVC: UIViewController {
+// - Search page using a name to search debound 1.5 sec and then search / show list on page / 10 item per page
+class SearchVC: UIViewController {
     // MARK: Outlet
+    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchImageView: UIImageView!
     @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
     // MARK: Properties
-    private(set) lazy var searchTap = searchImageView.rx
-        .tapGesture()
-        .when(.recognized)
-        .throttle(.milliseconds(700), scheduler: MainScheduler.instance)
-        .share()
     private(set) lazy var previousButttonTap = previousButton.rx
         .tap
         .throttle(.milliseconds(700), scheduler: MainScheduler.instance)
@@ -32,9 +26,9 @@ class CharacterListVC: UIViewController {
         .throttle(.milliseconds(700), scheduler: MainScheduler.instance)
         .share()
     
-    private let viewModel = CharacterListVCViewModel(apiClient: RickMortyRequest.shared)
+    private let viewModel = SearchVCVIewModel(apiClient: RickMortyRequest.shared)
     private let disposeBag = DisposeBag()
-    
+        
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,20 +40,6 @@ class CharacterListVC: UIViewController {
         
         initialUI()
         bind()
-        
-        viewModel.getCharacters()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        navigationController?.navigationBar.isHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        navigationController?.navigationBar.isHidden = false
     }
     
     private func bind() {
@@ -78,17 +58,29 @@ class CharacterListVC: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        searchTap
-            .subscribe(onNext: {[weak self] _ in
-                self?.moveToSearch()
+        textField.rx.text
+            .orEmpty
+            .debounce(.milliseconds(1500), scheduler: MainScheduler.instance)
+            .filter({[weak self] in
+                $0 != self?.viewModel.searchText
+            })
+            .subscribe(onNext: { [weak self] text in
+                guard !text.isEmpty else { return }
+                
+                self?.viewModel.searchText = text
+                self?.viewModel.pagePer10.accept(0)
+                self?.viewModel.page.accept(1)
+                self?.viewModel.search(searchText: text)
+                self?.viewModel.hasNextForApiCall.accept(false)
             })
             .disposed(by: disposeBag)
+        
         previousButttonTap
             .subscribe(onNext: {[weak self] _ in
                 guard let self = self else { return }
                 
                 guard !self.viewModel.charactersFromAPI.value.isEmpty else {
-                    self.viewModel.getCharacters()
+                    self.viewModel.search(searchText: self.textField.text ?? "")
                     return
                 }
                 
@@ -108,7 +100,7 @@ class CharacterListVC: UIViewController {
                     let currentPage = self.viewModel.page.value
                     self.viewModel.page.accept(currentPage + 1)
                     self.viewModel.pagePer10.accept(currentPagePer10Index + 1)
-                    self.viewModel.getCharacters()
+                    self.viewModel.search(searchText: self.textField.text ?? "")
                     return
                 }
                 
@@ -129,7 +121,6 @@ class CharacterListVC: UIViewController {
         previousButton.isEnabled = hasPrevious ? true : false
         previousButton.alpha = hasPrevious ? 1 : 0.7
         
-        
         let hasNext = viewModel.charactersFromAPI.value.count > 0 && (viewModel.pagePer10.value != (viewModel.charactersFromAPIPer10.value.count - 1) || viewModel.hasNextForApiCall.value)
         nextButton.isEnabled = hasNext ? true : false
         nextButton.alpha = hasNext ? 1 : 0.7
@@ -138,17 +129,10 @@ class CharacterListVC: UIViewController {
     private func initialUI() {
         previousButton.setTitle("Previous", for: .normal)
         nextButton.setTitle("Next", for: .normal)
-        searchImageView.image = UIImage(systemName: "magnifyingglass.circle")!
-    }
-    
-    // MARK: Navigation
-    private func moveToSearch() {
-        let vc = StoryboardScene.Character.Screen.search.getViewController() as! SearchVC
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
 // MARK: - UITableViewDelegate, UITableViewDataSource
-extension CharacterListVC: UITableViewDelegate, UITableViewDataSource {
+extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.characters.count
     }
